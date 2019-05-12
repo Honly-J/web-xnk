@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+     <title>后台管理系统</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--#include virtual="./commons/head.html"-->
+</head>
+<body>
+     <div id="wrapper">
+         <!-- 顶部导航和左侧菜单 -->
+         <!--#include virtual="./commons/top.html"-->
+         <div id="page-wrapper">
+             <div class="cell mt10">
+                <ol class="breadcrumb">
+                    <li><i class="glyphicon glyphicon-home"></i> 当前位置：</li>
+                    <li>内容管理</li>
+                    <li class="active">新增内容</li>
+                </ol>
+            </div>
+           <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           新增内容
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <form class="form-horizontal"   role='form'  action="#" method="post">
+                              <div class="form-group">
+                                <label   class="col-sm-2 control-label"><em class="red mr5">*</em>标题</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control"   name="title" value="信纳克简介"  placeholder="标题"  >
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label   class="col-sm-2 control-label">模式</label>
+                                <div class="radio col-sm-10">
+                                  <label>
+                                    <input type="radio" name="model" value="1" checked>
+                                    原创模式
+                                  </label>
+                                  <label>
+                                    <input type="radio" name="model" value="2">
+                                    文件模式
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="form-group" id="file-group" style="display:none">
+                                <label   class="col-sm-2 control-label"><em class="red mr5">*</em>文件</label>
+                                <div class="col-sm-3">
+                                  <div>
+                                    <input type="file" name="filename" value=""  placeholder="本地文件">
+                                  </div>
+                                </div>
+                                <div class="col-sm-4"></div>
+                              </div>
+                              <div class="form-group" id="content-group"  >
+                                <label   class="col-sm-2 control-label"><em class="red mr5">*</em>内容</label>
+                                <div class="col-sm-10">
+                                    <textarea type="text" class="form-control content-textarea" name="intro"  placeholder="内容">信纳克简介</textarea>
+                                </div>
+                              </div>
+                              <div class="form-group ">
+                                <div class="col-sm-offset-2 col-sm-10 pt35">
+                                  <button type="submit" class="btn btn-primary mr30">保存</button>
+                                  <a class="btn btn-default"  href="javascript:history.go(-1)">返回</a>
+                                </div>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+     </div>
+ <!-- 编辑器 -->
+    <link   rel="stylesheet" href="../vendor/kindeditor/themes/default/default.css" /> 
+    <script type="text/javascript" src="../vendor/kindeditor/kindeditor-all-min.js"></script>
+    <script charset="utf-8" src="../vendor/kindeditor/lang/zh-CN.js"></script>
+    <!-- docs: http://kindeditor.net/docs/ -->
+    <script type="text/javascript"> 
+      var editor;
+      KindEditor.ready(function(K) {
+        editor = K.create('.content-textarea', {
+          resizeType : 1,
+          width : '100%',
+          minHeight:"200",
+          newlineTag : "br",
+          allowPreviewEmoticons : false,
+          //编辑器上传相关配置
+          uploadJson : '../vendor/kindeditor/php/upload_json.php',
+          fileManagerJson : '../vendor/kindeditor/php/file_manager_json.php',
+          allowFileManager : true,
+          allowImageUpload : true,
+
+          items : [
+            'source', '|', 'undo', 'redo', '|', 'preview','code', 'cut', 'copy', 'paste',
+        'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+        'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+        'superscript', 'clearhtml',   'selectall', '|', 'fullscreen',  
+        'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+        'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image' ,
+         'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+        'anchor', 'link', 'unlink' ]
+        });
+      });
+    </script>
+
+    <script type="text/javascript">
+        $(function(){
+            $('[name="model"]').change(function(){
+              if($(this).val() === '1'){ $("#file-group").hide();$("#content-group").show() }
+              if($(this).val() === '2'){ $("#file-group").show();$("#content-group").hide()}
+            })
+            $("[role='form']").find("textarea").css({height:0,display:"block",border:0,padding:0});
+            $("[role='form']").validate({
+                rules: {
+                    "title": {
+                      required: true 
+                    },
+                    "filename":{
+                      required: function(){
+                       return  $('[name="model"]:checked').val() === "2"
+                      }
+                    },
+                    "intro": {
+                      required: function(){
+                        return $('[name="model"]:checked').val() === "1"
+                      }
+                    } 
+                },
+                messages: {
+                    "title": {
+                     required: "请输入名称" 
+                    },
+                    filename:{
+                      required:"请先选择文件"
+                    },
+                    "intro": {
+                      required: "请输入正文" 
+                    }
+                }
+            });
+        })
+
+    </script>
+</body>
+</html>

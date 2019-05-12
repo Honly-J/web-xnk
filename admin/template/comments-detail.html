@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+     <title>后台管理系统</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--#include virtual="./commons/head.html"-->
+</head>
+<body>
+     <div id="wrapper">
+         <!-- 顶部导航和左侧菜单 -->
+         <!--#include virtual="./commons/top.html"-->
+         <div id="page-wrapper">
+             <div class="cell mt10">
+                <ol class="breadcrumb">
+                    <li><i class="glyphicon glyphicon-home"></i> 当前位置：</li>
+                    <li class="active">评论管理</li>
+                </ol>
+            </div>
+           <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                      <div class="panel-body pt45">
+                          <div class="col-sm-8">标题标题标题标题标题标题</div>
+                          <div class="col-sm-2"><a href="#">原文链接</a></div>
+                          <div class="col-sm-2"><a class="btn btn-default btn-sm"  href="javascript:history.go(-1)">返回</a></div>
+                      </div>
+                      <div class="panel-body">
+                        <div class="comment-item clearfix ">
+                            <div class="blue col-sm-12">老翻子：</div>
+                            <div class="cont  pt10 pb10 col-sm-12">留言的内容，内容留言的内容，内容如留言的内容，内容如~~</div> 
+                            <div class="time-b clearfix">
+                                <div class="col-sm-9">
+                                  <span>20190430 15:12:33</span>
+                                </div>
+                              <div class="col-sm-3">
+                                  <button type="submit" class="btn btn-default btn-sm mr30" onclick="FUNC.toDel(343)">删除</button>
+                                  <button type="submit" class="btn btn-primary btn-sm mr30" onclick="toggleAnswer(this,343)">回复</button>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="comment-item clearfix ">
+                            <div class="blue col-sm-12">老翻子：</div>
+                            <div class="cont  pt10 pb10 col-sm-12">留言的内容，内容留言的内容，内容如留言的内容，内容如~~</div> 
+                            <div class="time-b clearfix">
+                                <div class="col-sm-9">
+                                  <span>20190430 15:12:33</span>
+                                </div>
+                              <div class="col-sm-3">
+                                  <button type="submit" class="btn btn-default btn-sm mr30" onclick="FUNC.toDel(343)">删除</button>
+                                  <button type="submit" class="btn btn-primary btn-sm mr30" onclick="toggleAnswer(this,343)">回复</button>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+     </div>
+
+    <script type="text/javascript">
+        FUNC.toDelURL = "../data/save.json"; //删除URL
+        function subAnswer(_t, commentId){
+          $t = $(_t).parents('.textarea').find('textarea')
+          if($t.val()){
+            $.ajax({
+              url: "/comment/ajax.json",
+              method: "POST",
+              data:{
+                id: commentId,
+                content: $t.val()
+              },
+              success: function(res){
+                if(res.code === '0'){
+                  FUNC.alert('回复成功')
+                  location.reload()
+                } else {
+                  FUNC.alert(res.message)
+                }
+              }
+            })
+          }
+        }
+        window.toggleAnswer = function(_t){
+          var __temphtml = '<div class="textarea pt10 pb10 ">\
+                            <textarea type="text" class="form-control"  style="resize:none" name="intro"  placeholder="内容"></textarea>\
+                            <div class="text-right pt10"><button type="submit" class="btn btn-default mr30" onclick="subAnswer(this)">提交</button></div>\
+                          </div>';
+          if( $(_t).data('open') ){
+            $(_t).data('open',false).text('回复').parents('.comment-item').find('.textarea').remove()
+          }else{
+            $p = $(_t).data('open',true).text('收起').parents('.comment-item')
+            $p.append(__temphtml)
+          }
+        }
+    </script>
+</body>
+</html>

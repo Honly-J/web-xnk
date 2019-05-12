@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>登录 - 信纳克网站后台管理系统</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--#include virtual="./commons/head.html"-->
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- 顶部导航和左侧菜单 -->
+        <!--#include virtual="./commons/top.html"-->
+        <div id="page-wrapper">
+            <div class="cell mt10">
+                <ol class="breadcrumb">
+                    <li><i class="glyphicon glyphicon-home"></i> 当前位置：</li>
+                    <li class="active">会员管理</li>
+                    <li class="active">交易管理</li>
+                </ol>
+            </div>
+            <div class="main">
+                <!-- 基本信息 -->
+               <div class="base-info">
+                    <table class="table table-hover">
+                            <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>昵称</th>
+                                        <th>充值金额</th>
+                                        <th>账户余额</th>
+                                        <th>可开发票金额</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>AAA</td>
+                                        <td>1000.00</td>
+                                        <td>200.00</td>
+                                        <td>800.00</td>
+                                    </tr>
+                                </tbody>
+                          </table>
+               </div>
+               <!-- tab切换 -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#transaction" aria-controls="transaction" role="tab" data-toggle="tab">交易记录</a></li>
+                    <li role="presentation"><a href="#invoice" aria-controls="invoice" role="tab" data-toggle="tab">开票记录</a></li>
+                </ul>
+                    
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <!-- 交易记录 -->
+                    <div role="tabpanel" class="tab-pane active" id="transaction">
+                        <!-- 添加记录表单 -->
+                        <form class="mt20 form-horizontal" role='form'>
+                            <div class="form-group">
+                                <label for="date" class="col-sm-2 control-label">日期</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="date" id="date" placeholder="如：201903011">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="money" class="col-sm-2 control-label">金额</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="money" id="money" placeholder="如：2000.00">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="title" class="col-sm-2 control-label">发票抬头</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="title" id="title" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="sno" class="col-sm-2 control-label">税号</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="sno" id="sno" placeholder="">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="text-right"><button type="button" class="btn btn-default" id="addMore">添加新纪录</button></div>
+                        <div class="alert alert-info alert-dismissible mt20" role="alert" style="display:none">
+                            <strong>提示：</strong><span class="msg"></span>
+                        </div>
+                        <div class="record-list mt45">
+                            <ul  class="list-unstyled pt10 pb10" id="list_tr_1">
+                                <li class="col-sm-2">20190311</li>
+                                <li class="col-sm-2">2000.00</li>
+                                <li class="col-sm-3">这里是当次发票的title</li>
+                                <li class="col-sm-3">这里显示税号</li>
+                                <li class="col-sm-1"><button type="button" title='删除' class="close" onclick="delListRecodeOne(1)"><span aria-hidden="true">&times;</span></button></li>
+                            </ul>
+                            <ul  class="list-unstyled pt10 pb10" id="list_tr_2">
+                                    <li class="col-sm-2">20190311</li>
+                                    <li class="col-sm-2">2000.00</li>
+                                    <li class="col-sm-3">这里是当次发票的title</li>
+                                    <li class="col-sm-3">这里显示税号</li>
+                                    <li class="col-sm-1"><button type="button" title='删除' class="close" onclick="delListRecodeOne(2)"><span aria-hidden="true">&times;</span></button></li>
+                                </ul>
+                        </div>
+                    </div>
+                    <!-- 开票记录 -->
+                    <div role="tabpanel" class="tab-pane" id="invoice">
+                        <div class="pt10 pb10">
+                            <span class="mr15">2019-03-11 18：00：00</span>
+                            <span class="mr15">充值</span>
+                            <span>+5000.00</span>
+                        </div>
+                        <div class="pt10 pb10">
+                            <span class="mr15">2019-03-11 18：00：00</span>
+                            <span class="mr15">充值</span>
+                            <span>+5000.00</span>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $(function(){
+        $("[aria-controls='"+ (FUNC.getUrlParma('type') || 'transaction') +"']").trigger('click')
+        $('#date').datepicker({
+            format: "yyyymmdd"
+        }); 
+        var validatorForm = $("[role='form']").validate({
+            rules: {
+               "date": {
+                  required: true 
+                },
+                "money": {
+                  required: true 
+                },
+                "title": {
+                  required: true 
+                },
+                "sno": {
+                  required: true 
+                } 
+            },
+            messages: {
+                "date": {
+                  required: '请输入日期' 
+                },
+                "money": {
+                  required: '请输入金额' 
+                },
+                "title": {
+                  required: '请输入发票抬头' 
+                },
+                "sno": {
+                  required: '请输入税号' 
+                } 
+            }
+        });
+        $("#addMore").click(function(){
+            var $form = $("[role='form']");
+            var $alert = $('[role="alert"]')
+            if($form.valid()){
+                var data =  {                     
+                    date:$('#date').val(),
+                    money:$('#money').val(),
+                    title:$('#title').val(),
+                    sno:$('#sno').val()
+                }
+               if(window.__fromLoad)return;
+               window.__fromLoad = true;
+               $.ajax({
+                    url: "../data/save.json",     
+                    type: "post",                
+                    dataType: "json",             
+                    data: data,
+                    complete: function(){
+                        window.__fromLoad = false;
+                        setTimeout(function(){
+                            $alert.hide()
+                        },2000)
+                    },
+                    success: function(res){
+                        console.log(res)
+                        if( res.status+'' == '0'){
+                           $alert.show().find(".msg").text('添加成功')
+                           data.id = res.data.id; //需返回id
+                           appendOneCord(data);     
+                           $form.find('input').val('')
+                        }else{
+                            $alert.show().find(".msg").text(res.messages) 
+                        }
+
+                    }
+               })     
+            }
+        })
+        function appendOneCord(item){
+            $(".record-list").prepend('<ul  class="list-unstyled pt10 pb10" id="list_tr_'+ item.id +'">\
+                    <li class="col-sm-2">'+ item.date +'</li>\
+                    <li class="col-sm-2">'+ item.money +'</li>\
+                    <li class="col-sm-3">'+ item.title +'</li>\
+                    <li class="col-sm-3">'+ item.sno +'</li>\
+                    <li class="col-sm-1"><button type="button" title="删除" class="close" onclick="delListRecodeOne('+ item.id +')"><span aria-hidden="true">&times;</span></button></li>\
+                </ul>')
+        }
+        window.delListRecodeOne = function(id){
+            if(!id)return;
+            if(confirm('确定删除吗')){
+                $.get('../data/opa.json?id='+id,function(res){
+                    if(res.status+'' == '0'){
+                        $("#list_tr_"+ id).remove()
+                    }
+                })
+            }
+        }
+    })
+
+</script>
+</html>

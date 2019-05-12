@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+     <title>后台管理系统</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--#include virtual="./commons/head.html"-->
+</head>
+<body>
+     <div id="wrapper">
+         <!-- 顶部导航和左侧菜单 -->
+         <!--#include virtual="./commons/top.html"-->
+         <div id="page-wrapper">
+             <div class="cell mt10">
+                <ol class="breadcrumb">
+                    <li><i class="glyphicon glyphicon-home"></i> 当前位置：</li>
+                    <li>收费内容管理</li>
+                    <li>幻灯集锦</li>
+                    <li class="active">新增内容</li>
+                </ol>
+            </div>
+           <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           新增内容
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <form class="form-horizontal"   role='form'  action="#" method="post">
+                              <div class="form-group">
+                                <label   class="col-sm-2 control-label"><em class="red mr5">*</em>标题</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control"   name="title" value=""  placeholder="标题"  >
+                                </div>
+                              </div>
+                              <div class="form-group" id="content-group"  >
+                                  <label   class="col-sm-2 control-label"><em class="red mr5">*</em>摘要</label>
+                                  <div class="col-sm-10">
+                                      <textarea class="form-control content-textarea" name="intro"  placeholder="摘要"></textarea>
+                                  </div>
+                                </div>
+                              <div class="form-group">
+                                  <label   class="col-sm-2 control-label"><em class="red mr5">*</em>价格</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control"   name="price" value=""  placeholder="价格"  >
+                                  </div>
+                                </div>
+                              <div class="form-group" id="file-group">
+                                <label   class="col-sm-2 control-label"><em class="red mr5">*</em>文件</label>
+                                <div class="col-sm-3">
+                                  <div>
+                                    <input type="file" name="filename" value=""  placeholder="本地文件">
+                                  </div>
+                                </div>
+                                <div class="col-sm-4"></div>
+                              </div>
+                              
+                              <div class="form-group ">
+                                <div class="col-sm-offset-2 col-sm-10 pt35">
+                                  <button type="submit" class="btn btn-primary mr30">保存</button>
+                                  <a class="btn btn-default"  href="javascript:history.go(-1)">返回</a>
+                                </div>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+     </div>
+
+    <script type="text/javascript">
+        $(function(){
+            $("[role='form']").validate({
+                rules: {
+                    "title": {
+                      required: true 
+                    },
+                    "filename":{
+                      required: true
+                    },
+                    "price": {
+                      required: true
+                    },
+                    "intro": {
+                      required: true
+                    } 
+                },
+                messages: {
+                    "title": {
+                     required: "请输入名称" 
+                    },
+                    filename:{
+                      required:"请先选择文件"
+                    },
+                    price:{
+                      required:"请输入价格"
+                    },
+                    "intro": {
+                      required: "请输入正文" 
+                    }
+                }
+            });
+        })
+
+    </script>
+</body>
+</html>

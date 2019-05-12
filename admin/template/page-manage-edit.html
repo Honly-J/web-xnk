@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+     <title>后台管理系统</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--#include virtual="./commons/head.html"-->
+</head>
+<body>
+     <div id="wrapper">
+         <!-- 顶部导航和左侧菜单 -->
+         <!--#include virtual="./commons/top.html"-->
+         <div id="page-wrapper">
+             <div class="cell mt10">
+                <ol class="breadcrumb">
+                    <li><i class="glyphicon glyphicon-home"></i> 当前位置：</li>
+                    <li>页面管理</li>
+                    <li class="active">编辑内容</li>
+                </ol>
+            </div>
+           <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           编辑内容
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <form class="form-horizontal"   role='form'  action="#" method="post">
+                              <div class="form-group">
+                                <label   class="col-sm-2 control-label"><em class="red mr5">*</em>页面名称</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control"   name="title" value="信纳克简介"  placeholder="标题"  >
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label   class="col-sm-2 control-label"><em class="red mr5">*</em>页面内容</label>
+                                <div class="col-sm-10">
+                                    <textarea type="text" class="form-control content-textarea" name="intro"  placeholder="页面内容"  required>
+                                      <p> 新华社巴黎10月27日电（记者张雪飞）联合国教科文组织27日在巴黎总部将首次评选出的“空间科学奖章”授予包括中国航天员杨利伟在内的4名宇航员，以表彰其在推动空间科学发展所作出的卓越贡献。</p> 
+                                    </textarea>
+                                </div>
+                              </div>
+                              <div class="form-group ">
+                                <div class="col-sm-offset-2 col-sm-10 pt35">
+                                  <button type="submit" class="btn btn-primary mr30">保存</button>
+                                  <a class="btn btn-default"  href="javascript:history.go(-1)">返回</a>
+                                </div>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+     </div>
+ <!-- 编辑器 -->
+    <link   rel="stylesheet" href="../vendor/kindeditor/themes/default/default.css" /> 
+    <script type="text/javascript" src="../vendor/kindeditor/kindeditor-all-min.js"></script>
+    <script charset="utf-8" src="../vendor/kindeditor/lang/zh-CN.js"></script>
+    <!-- docs: http://kindeditor.net/docs/ -->
+    <script type="text/javascript"> 
+      var editor;
+      KindEditor.ready(function(K) {
+        editor = K.create('.content-textarea', {
+          resizeType : 1,
+          width : '100%',
+          minHeight:"200",
+          newlineTag : "br",
+          allowPreviewEmoticons : false,
+          //编辑器上传相关配置
+          uploadJson : '../vendor/kindeditor/php/upload_json.php',
+          fileManagerJson : '../vendor/kindeditor/php/file_manager_json.php',
+          allowFileManager : true,
+          allowImageUpload : true,
+
+          items : [
+            'source', '|', 'undo', 'redo', '|', 'preview','code', 'cut', 'copy', 'paste',
+        'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+        'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+        'superscript', 'clearhtml',   'selectall', '|', 'fullscreen',  
+        'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+        'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image' ,
+         'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+        'anchor', 'link', 'unlink' ]
+        });
+      });
+    </script>
+
+    <script type="text/javascript">
+        $(function(){
+             $("[role='form']").find("textarea").css({height:0,display:"block",border:0,padding:0});
+            $("[role='form']").validate({
+                rules: {
+                   "type": {
+                      required: true 
+                    },
+                    "title": {
+                      required: true 
+                    },
+                    // "imageFile":{
+                    //   required:true
+                    // },
+                    "intro": {
+                      required: true 
+                    } 
+                },
+                messages: {
+                  "type": {
+                     required: "请选择类别样式" 
+                    },
+                    "title": {
+                     required: "请输入名称" 
+                    },
+                    // imageFile:{
+                    //   required:"请先选择预览图片"
+                    // },
+                    "intro": {
+                      required: "请输入正文" 
+                    }
+                }
+            });
+        })
+
+    </script>
+</body>
+</html>

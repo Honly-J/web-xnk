@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+     <title>后台管理系统</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+        <link rel="shortcut icon" type="image/ioc" href="#"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="Cache-Control" content="no-transform " />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- custemer diy css -->
+    <link href="../dist/css/custemer.css" rel="stylesheet">
+        <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+    <!-- copy text Plugin JavaScript -->
+    <script src="../vendor/zclip/jquery.zclip.min.js"></script>
+    <!-- validate Plugin JavaScript -->
+    <script src="../vendor/validate/jquery.validate.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../dist/js/common.js"></script>
+    <script src="../dist/js/custemer.js"></script>
+        <!-- 日期控件 -->
+    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+    <script type="text/javascript" src="../vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <!-- 时间控件 -->
+    <!--<link rel="stylesheet" type="text/css" href="../vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+    <script type="text/javascript" src="../vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script> -->
+</head>
+<body>
+     <div id="wrapper">
+         <!-- 顶部导航和左侧菜单 -->
+         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">后台管理系统</a>
+    </div>
+    <!-- /.navbar-header -->
+    <ul class="nav navbar-top-links navbar-right">
+        <!-- /.dropdown -->
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-user fa-fw"></i>
+                <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li>
+                    <a href="password.html"><i class="fa fa-user fa-fw"></i>修改密码</a>
+                </li>
+                <li class="divider"></li>
+                  <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 安全退出</a>
+                </li>
+            </ul>
+            <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+    </ul>
+    <!-- /.navbar-top-links -->
+    <!-- 左侧菜单 -->
+     <div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav in" id="side-menu">
+            <li class="sidebar-search"><div>系统菜单</div></li>
+            <li ><a href="member-list.html" target="_self" ><i class="fa fa-calendar-o fa-fw"></i>会员管理</a></li>
+            <li ><a href="page-manage.html" target="_self" ><i class="fa fa-rocket fa-fw"></i>页面管理</a></li>
+            <li>
+                <a href="javascript://;" target="_self">
+                    <i class="fa fa-whatsapp fa-fw"></i>
+                    新闻管理
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="news-list.html" target="_self">学习班</a></li>
+                    <li><a href="news-list.html" target="_self">案例解析</a></li>
+                    <li><a href="news-list.html" target="_self">书稿</a></li>
+                    <li><a href="news-list.html" target="_self">文章</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript://;" target="_self">
+                    <i class="fa fa-money fa-fw"></i>
+                    收费内容管理
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="pay-list.html" target="_self">幻灯集锦</a></li>
+                    <li><a href="pay-video-list.html" target="_self">讲座视频</a></li>
+                    <li><a href="pay-list.html" target="_self">用户手册</a></li>
+                </ul>
+            </li>
+            <li><a href="comments-list.html" target="_self"><i class="fa fa-stethoscope fa-fw"></i>评论管理</a></li>
+            <li><a href="ad-list.html" target="_self"><i class="fa fa-stethoscope fa-fw"></i>广告管理</a></li>
+
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>
+    <!-- /.navbar-static-side -->
+</nav>
+ 
+         <div id="page-wrapper">
+             <div class="cell mt10">
+                <ol class="breadcrumb">
+                    <li><i class="glyphicon glyphicon-home"></i> 当前位置：</li>
+                    <li>收费内容管理</li>
+                    <li>讲座视频</li>
+                    <li class="active">新增内容</li>
+                </ol>
+            </div>
+           <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           新增内容
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <form class="form-horizontal"   role='form'  action="#" method="post">
+                              <div class="form-group">
+                                <label   class="col-sm-2 control-label"><em class="red mr5">*</em>标题</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control"   name="title" value=""  placeholder="标题"  >
+                                </div>
+                              </div>
+                              <div class="form-group" id="content-group"  >
+                                  <label   class="col-sm-2 control-label"><em class="red mr5">*</em>摘要</label>
+                                  <div class="col-sm-10">
+                                      <textarea class="form-control content-textarea" name="intro"  placeholder="摘要"></textarea>
+                                  </div>
+                                </div>
+                              <div class="form-group">
+                                  <label   class="col-sm-2 control-label"><em class="red mr5">*</em>价格</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control"   name="price" value=""  placeholder="价格"  >
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                    <label   class="col-sm-2 control-label"><em class="red mr5">*</em>视频链接</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control"   name="videourl" value=""  placeholder="https://"  >
+                                    </div>
+                                  </div>
+                              
+                              <div class="form-group ">
+                                <div class="col-sm-offset-2 col-sm-10 pt35">
+                                  <button type="submit" class="btn btn-primary mr30">保存</button>
+                                  <a class="btn btn-default"  href="javascript:history.go(-1)">返回</a>
+                                </div>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+     </div>
+
+    <script type="text/javascript">
+        $(function(){
+            $("[role='form']").validate({
+                rules: {
+                    "title": {
+                      required: true 
+                    },
+                    "filename":{
+                      required: true
+                    },
+                    "price": {
+                      required: true
+                    },
+                    "videourl": {
+                      required: true
+                    } 
+                },
+                messages: {
+                    "title": {
+                     required: "请输入名称" 
+                    },
+                    filename:{
+                      required:"请先选择文件"
+                    },
+                    price:{
+                      required:"请输入价格"
+                    },
+                    "videourl": {
+                      required: "请输入视频链接" 
+                    }
+                }
+            });
+        })
+
+    </script>
+</body>
+</html>
