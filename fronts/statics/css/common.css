@@ -1,0 +1,125 @@
+.fc:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.hide {
+  display: none;
+}
+
+@font-face {
+  font-family: 'Conv_calibri';
+  src: url("../font2/calibri.eot");
+  src: url("../font2/calibri.woff") format("woff"), url("../font2/calibri.ttf") format("truetype"), url("../font2/calibri.svg") format("svg");
+}
+
+@font-face {
+  font-family: 'Calibri_Light';
+  src: url("../font2/Calibri_Light.eot");
+  src: url("../font2/Calibri_Light.woff") format("woff"), url("../font2/Calibri_Light.ttf") format("truetype"), url("../font2/Calibri_Light.svg") format("svg");
+}
+
+a {
+  color: #485157;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none !important;
+  color: #23aab0;
+}
+
+.underline {
+  text-decoration: underline !important;
+}
+
+.blue {
+  color: #23aab0;
+}
+
+.gray {
+  color: #485157 !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.white-wrapper {
+  background-color: #fff;
+}
+
+.gray-wrapper {
+  background-color: #ececec;
+}
+
+.gray-wrapper2 {
+  background-color: #eef7f8;
+}
+
+.blue-wrapper {
+  background-color: #eef7f8;
+}
+
+.pen-bg-wrapper {
+  background: url("../imgs/banner-core.jpg") 50% 50%;
+  background-size: cover;
+  height: 435.9375px;
+}
+
+body {
+  background-color: #fff;
+  color: #485157;
+  font-family: 'Conv_calibri',Sans-Serif;
+  font-size: 19.6875px;
+}
+
+body p {
+  white-space: normal;
+}
+
+.lighter {
+  font-weight: lighter;
+  font-family: 'Calibri_Light';
+}
+
+.black {
+  color: #000;
+}
+
+.w1024 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1440px;
+}
+
+.shadow {
+  -webkit-box-shadow: 0 0 10px 1px #ccc;
+          box-shadow: 0 0 10px 1px #ccc;
+}
+
+.line1px {
+  height: 1.40625px;
+  background-color: #ddd;
+}
+
+.h42 {
+  height: 42px;
+}
+
+.w1024 {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.header-blank {
+  height: 191px;
+}
+
+.h132 {
+  height: 132px;
+}
+/*# sourceMappingURL=common.css.map */

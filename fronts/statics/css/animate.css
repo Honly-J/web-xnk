@@ -1,0 +1,312 @@
+.fc:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.hide {
+  display: none;
+}
+
+@font-face {
+  font-family: 'Conv_calibri';
+  src: url("../font2/calibri.eot");
+  src: url("../font2/calibri.woff") format("woff"), url("../font2/calibri.ttf") format("truetype"), url("../font2/calibri.svg") format("svg");
+}
+
+@font-face {
+  font-family: 'Calibri_Light';
+  src: url("../font2/Calibri_Light.eot");
+  src: url("../font2/Calibri_Light.woff") format("woff"), url("../font2/Calibri_Light.ttf") format("truetype"), url("../font2/Calibri_Light.svg") format("svg");
+}
+
+body, ul, li, h1, h3, h5, img, ol, table, td, th {
+  margin: 0;
+  padding: 0;
+}
+
+.w1024 {
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.banner {
+  height: 700px;
+  background-position: 50% 50%;
+  display: table;
+  width: 100%;
+}
+
+.banner .text {
+  font-size: 60px;
+  color: #fff;
+  text-align: center;
+  display: table-cell;
+  height: 100%;
+  width: 100%;
+  vertical-align: middle;
+  padding: 0 20px;
+  font-family: 'Calibri_Light';
+}
+
+.banner.bg0 {
+  background-image: url("../imgs/banner-home-big0.jpg");
+}
+
+.banner.bg1 {
+  background-image: url("../imgs/banner-home-big1.jpg");
+}
+
+.banner.bg2 {
+  background-image: url("../imgs/banner-home-big2.jpg");
+}
+
+.banner.active0 {
+  background-size: 100%;
+  background-position: 45% 50%;
+}
+
+.banner.active1 {
+  background-size: 100%;
+  background-position: 55% 50%;
+}
+
+.banner.active2 {
+  background-size: 100%;
+  background-position: 50% 45%;
+}
+
+.banner.active3 {
+  background-size: 100%;
+  background-position: 50% 55%;
+}
+
+.banner.active4 {
+  background-size: 110%;
+  background-position: 50% 50%;
+}
+
+.banner.active5 {
+  background-size: 90%;
+  background-position: 50% 50%;
+}
+
+.banner.animate {
+  -webkit-transition: background 4s 0s linear;
+  transition: background 4s 0s linear;
+}
+
+@-webkit-keyframes randomCircle {
+  0% {
+    -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  40%, 100% {
+    -webkit-transform: rotateX(360deg) rotateY(0deg) rotateZ(0deg);
+            transform: rotateX(360deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
+
+@keyframes randomCircle {
+  0% {
+    -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  40%, 100% {
+    -webkit-transform: rotateX(360deg) rotateY(0deg) rotateZ(0deg);
+            transform: rotateX(360deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
+
+.more-3d-wper {
+  width: 114px;
+  height: 42px;
+  margin: 20px auto 70px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 800px;
+  perspective: 800px;
+}
+
+.more-3d-wper .more-btn {
+  display: block;
+  background: url("../imgs/ioc-more.png") no-repeat;
+  height: 42px;
+  width: 114px;
+  margin: 0 auto;
+  -webkit-animation: randomCircle 8s 0s linear infinite;
+  animation: randomCircle 8s 0s linear infinite;
+}
+
+.more-3d-wper .more-btn:hover {
+  -webkit-animation: ac 8s 0s linear infinite;
+  animation: ac 8s 0s linear infinite;
+  background: url("../imgs/ioc-more2.png") no-repeat;
+}
+
+@keyframes pop {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes pop {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes pulse {
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.ul-4-animate {
+  width: 310px;
+  background-color: #23aab0;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.ul-4-animate a {
+  color: #fff;
+}
+
+.ul-4-animate em {
+  display: block;
+  float: left;
+  height: 45px;
+  width: 45px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.ul-4-animate em:hover:before, .ul-4-animate em.cur:before {
+  -webkit-animation: pop 0s;
+  animation: pop 0s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.ul-4-animate em:hover:after, .ul-4-animate em.cur:after {
+  -webkit-animation: pulse .0s;
+  animation: pulse 0s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.ul-4-animate em:hover.ioc4-0 var, .ul-4-animate em.cur.ioc4-0 var {
+  background-position: 2px 2px;
+}
+
+.ul-4-animate em:hover.ioc4-1 var, .ul-4-animate em.cur.ioc4-1 var {
+  background-position: 2px -60px;
+}
+
+.ul-4-animate em:hover.ioc4-2 var, .ul-4-animate em.cur.ioc4-2 var {
+  background-position: 2px -126px;
+}
+
+.ul-4-animate em:hover.ioc4-3 var, .ul-4-animate em.cur.ioc4-3 var {
+  background-position: 4px -188px;
+}
+
+.ul-4-animate em:before, .ul-4-animate em:after, .ul-4-animate em var {
+  content: '';
+  top: 0;
+  left: 0;
+  width: 45px;
+  height: 45px;
+  z-index: 1;
+  position: absolute;
+  border: 1px solid;
+  border-radius: 100%;
+}
+
+.ul-4-animate em:after {
+  background-color: #fff;
+  -webkit-transform: scale(0.1);
+  transform: scale(0.1);
+  opacity: 0;
+}
+
+.ul-4-animate em var {
+  background: url("../imgs/i-home-4.png") no-repeat;
+  -webkit-transition: transform 0.3s 0s linear;
+  -webkit-transition: -webkit-transform 0.3s 0s linear;
+  transition: -webkit-transform 0.3s 0s linear;
+  transition: transform 0.3s 0s linear;
+  transition: transform 0.3s 0s linear, -webkit-transform 0.3s 0s linear;
+  border: none;
+  z-index: 3;
+}
+
+.ul-4-animate em.ioc4-0 var {
+  background-position: -44px  2px;
+}
+
+.ul-4-animate em.ioc4-0 var.cur var {
+  background-position: 0 2px;
+}
+
+.ul-4-animate em.ioc4-1 var {
+  background-position: -44px  -62px;
+}
+
+.ul-4-animate em.ioc4-1 var.cur var {
+  background-position: 0 -62px;
+}
+
+.ul-4-animate em.ioc4-2 var {
+  background-position: -44px  -128px;
+}
+
+.ul-4-animate em.ioc4-2 var.cur var {
+  background-position: 0 -128px;
+}
+
+.ul-4-animate em.ioc4-3 var {
+  background-position: -44px  -190px;
+}
+
+.ul-4-animate em.ioc4-3 var.cur var {
+  background-position: 0 -190px;
+}
+
+.ul-4-animate li {
+  height: 55px;
+  padding-left: 10px;
+  line-height: 45px;
+  margin: 25px 0;
+  color: #fff;
+  font-size: 22px;
+}
+
+.ul-4-animate li a:hover {
+  color: #fff;
+}
+/*# sourceMappingURL=animate.css.map */

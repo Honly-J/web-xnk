@@ -1,0 +1,24 @@
+.fc:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.hide {
+  display: none;
+}
+
+@font-face {
+  font-family: 'Conv_calibri';
+  src: url("../font2/calibri.eot");
+  src: url("../font2/calibri.woff") format("woff"), url("../font2/calibri.ttf") format("truetype"), url("../font2/calibri.svg") format("svg");
+}
+
+@font-face {
+  font-family: 'Calibri_Light';
+  src: url("../font2/Calibri_Light.eot");
+  src: url("../font2/Calibri_Light.woff") format("woff"), url("../font2/Calibri_Light.ttf") format("truetype"), url("../font2/Calibri_Light.svg") format("svg");
+}
+/*# sourceMappingURL=function.css.map */
