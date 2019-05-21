@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .fc:after {
   content: " ";
   display: block;
@@ -121,5 +122,58 @@ body p {
 
 .h132 {
   height: 132px;
+}
+
+header .top-info,
+header .logo-wrapper,
+header .navigator-wrapper,
+section, footer {
+  width: 980px;
+  margin: 0 auto;
+  font-size: 14px;
+  color: #333;
+}
+
+header .top-info {
+  height: 30px;
+  line-height: 30px;
+  color: #6f6f6f;
+  text-align: right;
+}
+
+header .logo-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 97px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .logo-wrapper .logo-text {
+  width: 627px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .logo-wrapper .logo-text > a {
+  width: 247px;
+}
+
+header .logo-wrapper .logo-text .log-text {
+  width: 380px;
+  font-size: 20px;
+  color: #034167;
+  line-height: 24px;
+  font-family: '黑体';
+  padding-top: 15px;
+}
+
+header .logo-wrapper .other-logs {
+  width: 353px;
+  text-align: right;
+  margin: 0 20px;
 }
 /*# sourceMappingURL=common.css.map */

@@ -1,6 +1,7 @@
 @import "function";
 $green:#00849f;
 $blue:#23aab0;
+$text:#034167;
 $c:#485157;
 $gray:#ececec;
 $blue2:#eef7f8;
@@ -49,3 +50,47 @@ body p { white-space:normal; }
 .w1024{width:1024*1.40625+0px;margin:0 auto;}
 .header-blank{height:132+59px;}
 .h132{height: 132px;}
+
+//header
+header .top-info,
+header .logo-wrapper,
+header .navigator-wrapper,
+section,footer{
+  width: 980px;
+  margin:0 auto;
+  font-size: 14px;
+  color:#333;
+}
+
+header .top-info{
+  height: 30px;
+  line-height:30px;
+  color:#6f6f6f;
+  text-align: right;
+}
+
+header .logo-wrapper{
+  display: flex;
+  height: 97px;
+  align-items: center;
+  .logo-text{
+    width:247+380px;
+    display: flex;
+    &>a{
+      width:247px;
+    }
+    .log-text{
+      width:380px;
+      font-size: 20px;
+      color:$text;
+      line-height: 24px;
+      font-family: '黑体';
+      padding-top: 15px;
+    }
+  }
+  .other-logs{
+    width: 980-247-380px;
+    text-align: right;
+    margin: 0 20px;
+  }
+}
